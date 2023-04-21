@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<h1>Assalomu alaykum talabalar sahifasiga hush kelibsiz</h1>
+<a href="{% url 'soz' %}">Ortga</a>
+<a href="{% url 'qoshish' %}">Talaba qoshish</a>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">ISM</th>
+      <th scope="col">FAMILIYA</th>
+      <th scope="col">YOSH</th>
+        <th scope="col">FAN</th>
+        <th scope="col">DATE</th>
+        <th scope="col">KURS</th>
+      <th scope="col">Yangilash</th>
+      <th scope="col">O'chirish</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for student in students %}
+    <tr>
+      <th scope="row">{{student.id}}</th>
+      <td>{{student.ism}}</td>
+      <td>{{student.familiya}}</td>
+      <td>{{student.yosh}}</td>
+      <td>{{student.fan}}</td>
+      <td>{{student.date}}</td>
+      <td>{{student.kurs}}</td>
+      <td><button class="btn btn-success">Yangilash</button></td>
+      <td><a href="{% url 'delete1' student.id %}" class="btn btn-danger">O'chirish</a></td>
+    </tr>
+  {% endfor  %}
+
+  </tbody>
+</table>
+</body>
+</html>
